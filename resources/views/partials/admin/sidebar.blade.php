@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
   <!-- Brand Logo -->
   <a href="/" class="brand-link">
-    <img src={{asset("admin-lte/dist/img/AdminLTELogo.png")}} alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <img src={{asset("image/e-mebel-high-resolution-logo.svg")}} alt="E-MEBEL LOGO" class="brand-image img-circle elevation-3" style="opacity: .9">
+    <span class="brand-text font-weight-light">E-MEBEL</span>
   </a>
 
   <!-- Sidebar -->
@@ -13,7 +13,7 @@
         <img src={{asset("admin-lte/dist/img/user2-160x160.jpg")}} class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <a href="#" class="d-block">Admin</a>
       </div>
     </div>    
 
