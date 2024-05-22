@@ -31,16 +31,17 @@ Halaman Produk
                     <th scope="col">Actions</th>
                     </tr>
                 </thead>
-                <tbody>                               
+                <tbody>
+                    @forelse ($produk as $key=>$value)
                     <tr >
-                        <td></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$key + 1}}</td>
+                        <td>{{$value->nama}}</td>
+                        <td>{{$value->estimasi}}</td>
+                        <td>{{$value->deskripsi}}</td>
                         <td>                            
                             <div class="d-flex ">
                             <a href="#" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>                                                                                                                                                                        
-                                <form action="/produk" method="POST">
+                                <form action="/produk/{{$value->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger mr-2" onclick="return confirm('Are you sure to delete this produk!');">
@@ -49,7 +50,13 @@ Halaman Produk
                                 </form>                            
                             </div>
                         </td>                      
-                    </tr>               
+                    </tr>     
+                    @empty
+                    <tr colspan="3">
+                        <td>No data</td>
+                    </tr>  
+                    @endforelse                               
+                              
                 </tbody>
             </table>
         </div>

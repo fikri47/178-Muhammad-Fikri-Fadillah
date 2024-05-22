@@ -76,6 +76,12 @@
 <!-- AdminLTE App -->
 <script src={{asset("admin-lte/dist/js/adminlte.min.js")}}></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+<script>
+  $(document).ready(function () {
+          bsCustomFileInput.init()
+      })
+</script>
 <script src={{asset("admin-lte/plugins/datatables/jquery.dataTables.js")}}></script>
 <script src={{asset("admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js")}}></script>
 @stack('scripts')

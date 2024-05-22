@@ -5,9 +5,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProdukController::class, 'getAll']);
 
 Route::get('/admin', function () {
     return view('dashboard');

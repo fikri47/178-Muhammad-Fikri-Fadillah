@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
+use Storage;
 
 class ProdukController extends Controller
 {
@@ -11,7 +13,8 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.produk.index');
+        $produk = Produk::all();
+        return view('pages.admin.produk.index', ['produk'=>$produk]);
     }
 
     /**
@@ -27,7 +30,25 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $filename = null;
+
+        if($request->hasFile('gambar')) {
+            $filename= time(). '.' .$request->gambar->extension();
+            $request->gambar->move(public_path('produk_gambar'), $filename);
+
+
+            $produk = new Produk();
+            $produk->nama = $request->nama;
+            $produk->estimasi = $request->estimasi;
+            $produk->deskripsi = $request->deskripsi;
+            $produk->harga = $request->harga;
+            $produk->gambar = $filename;
+            $produk->save();
+
+           return redirect('/produk');
+        
+        }
+
     }
 
     /**
@@ -35,7 +56,8 @@ class ProdukController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $produk = Produk::find($id);
+        return view('pages.admin.produk.show', ['produk'=>$produk]);
     }
 
     /**
@@ -59,6 +81,17 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $produk = Produk::find($id);
+        $produk->delete();
+        
+        $image_path = public_path('produk_gambar').'/'.$produk->gambar;
+        unlink($image_path);
+
+        return redirect('/produk')->with(['success' => 'Data Berhasil Dihapus!']);;
+    }
+
+    public function getAll() {
+        $produk = Produk::all();
+        return view('homepage', ['produk'=>$produk]);
     }
 }

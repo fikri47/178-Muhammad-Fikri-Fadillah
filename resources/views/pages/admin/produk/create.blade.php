@@ -5,8 +5,8 @@
 
 
 @section('content')
-<form action="/produk" method="POST">
-
+<form action="/produk" method="POST" enctype="multipart/form-data">
+@csrf
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -57,12 +57,13 @@
                     @enderror
                 </div>    
                 <div class="form-group">
-                    <label for="image">Image</label>
+                    <label for="gambar">Gambar</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="image">
-                        <label class="custom-file-label" for="image">Choose file</label>
+                        <input type="file" class="custom-file-input" name="gambar" id="gambar">
+                        <label class="custom-file-label" for="gambar">Choose file</label>
                     </div>
-                </div>
+                </div>                                
+                
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </div>
