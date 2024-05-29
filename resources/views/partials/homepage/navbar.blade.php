@@ -14,9 +14,12 @@
                 <!-- menu start -->
                 <nav class="main-menu">
                     <ul>
-                        <li class="current-list-item"><a href="#">Home</a>                            
-                        </li>                                                
+                        <li class="current-list-item"><a href="#">Home</a></li>                                                
+                        @if (Request::is('/'))                            
                         <li><a href="#contact-us">Contact</a></li>
+                        @else
+                        <li><a href="#contact">Contact</a></li>
+                        @endif                                                
                         <li><a href="#product-us">Shop</a>                            
                         </li>
                         <li>

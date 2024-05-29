@@ -18,6 +18,7 @@ Halaman Surat Jalan
             </button>
         </div>
     </div>
+    
     <div class="card-body">        
         <div class="table-responsive">
             <table class="table">
@@ -27,33 +28,45 @@ Halaman Surat Jalan
                     <th scope="col">Nama Pelanggan</th>
                     <th scope="col">No.Telepon</th>
                     <th scope="col">Produk</th>
-                    <th scope="col">Deskripsi</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Biaya Produk</th>
+                    <th scope="col">Deskripsi Pengiriman</th>
+                    <th scope="col">Biaya Ongkos Kirim</th>
+                    <th scope="col">Tanggal Pengiriman</th>
                     <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>                               
                     <tr >
-                        <td></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>                            
-                            <div class="d-flex ">                                                        
-                            <a href="#" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>
-                            <a href="#" class="btn btn-info mr-2"><i class="fas fa-print"></i></a>
-                                <form action="/produk" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger mr-2" onclick="return confirm('Are you sure to delete this produk!');">
-                                        <i class="fas fa-trash"></i>
-                                    </button>                                      
-                                </form>                            
-                            </div>
-                        </td>                      
-                    </tr>               
+                    @forelse ($surat as $key=>$value)                        
+                    <td>{{$key+ 1}}</td>
+                    <td>{{$value->pemesanan->nama_pemesan}}</td>
+                    <td>{{$value->pemesanan->telp}}</td>
+                    <td>{{$value->pemesanan->produk->nama}}</td>
+                    <td>{{$value->pemesanan->alamat_pemesan}}</td>
+                    <td>{{$value->pemesanan->total}}</td>
+                    <td>{{$value->deskripsi_surat}}</td>
+                    <td>{{$value->ongkos_kirim}}</td>
+                    <td>{{$value->tgl_pengiriman}}</td>
+                    <td>                            
+                        <div class="d-flex ">                                                        
+                        <a href="/surat/{{$value->id}}/edit" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>
+                        <a href="/surat/{{$value->id}}" class="btn btn-info mr-2"><i class="fas fa-print"></i></a>
+                            <form action="/surat/{{$value->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger mr-2" onclick="return confirm('Are you sure to delete this surat jalan!');">
+                                    <i class="fas fa-trash"></i>
+                                </button>                                      
+                            </form>                            
+                        </div>
+                    </td>                      
+                </tr>               
+                    @empty
+                    <tr colspan="3">
+                        <td>No data</td>
+                    </tr>  
+                    @endforelse
                 </tbody>
             </table>
         </div>

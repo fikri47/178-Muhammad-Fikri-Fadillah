@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use Storage;
+use File;
 
 class ProdukController extends Controller
 {
@@ -30,6 +31,14 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'estimasi' => 'required|numeric',
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+            'gambar' => 'required|image|mimes:png,jpg'
+        ]);
+
         $filename = null;
 
         if($request->hasFile('gambar')) {
@@ -57,7 +66,8 @@ class ProdukController extends Controller
     public function show(string $id)
     {
         $produk = Produk::find($id);
-        return view('pages.admin.produk.show', ['produk'=>$produk]);
+        $moreProduk = Produk::where('id', '!=', $id)->limit(5)->get();
+        return view('pages.admin.produk.show', compact('produk', 'moreProduk'));
     }
 
     /**
@@ -65,7 +75,8 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produk = Produk::find($id);
+        return view('pages.admin.produk.update', ['produk'=>$produk]);
     }
 
     /**
@@ -73,7 +84,36 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $request->validate([
+            'nama' => 'required',
+            'estimasi' => 'required|numeric',
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+            'gambar' => 'required|image|mimes:png,jpg'
+        ]);
+
+        $produk = Produk::find($id);
+        $filename = null;
+
+        if($request->hasFile('gambar')) {
+            $path = 'produk_gambar/';
+            File::delete($path. $produk->gambar);
+  
+            $filename = time(). '.' .$request->gambar->extension();
+            $request->gambar->move(public_path('produk_gambar/'), $filename);
+  
+            $produk->gambar = $filename;
+            $produk->update();
+        }
+
+        $produk->nama = $request->nama;
+        $produk->estimasi = $request->estimasi;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->harga = $request->harga;
+        $produk->update();
+        return redirect('/produk');
+
     }
 
     /**

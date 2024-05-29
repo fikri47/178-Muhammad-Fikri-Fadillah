@@ -40,7 +40,7 @@ Halaman Produk
                         <td>{{$value->deskripsi}}</td>
                         <td>                            
                             <div class="d-flex ">
-                            <a href="#" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>                                                                                                                                                                        
+                            <a href="/produk/{{$value->id}}/edit" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>                                                                                                                                                                        
                                 <form action="/produk/{{$value->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')

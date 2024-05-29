@@ -27,34 +27,42 @@ Halaman Pemesanan
                     <th scope="col">#</th>
                     <th scope="col">Nama Pelanggan</th>
                     <th scope="col">No.Telepon</th>
+                    <th scope="col">Alamat Pelanggan</th>
                     <th scope="col">Produk</th>
                     <th scope="col">Deskripsi Pelanggan</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Total Biaya</th>
                     <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>                               
                     <tr >
-                        <td></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @forelse ($pemesanan as $key=>$value)                            
+                        <td>{{$key + 1}}</td>
+                        <td>{{$value->nama_pemesan}}</td>
+                        <td>{{$value->telp}}</td>
+                        <td>{{$value->alamat_pemesan}}</td>
+                        <td>{{$value->produk->nama}}</td>
+                        <td>{{$value->deskripsi}}</td>
+                        <td>{{number_format($value->total)}}</td>
                         <td>                            
                             <div class="d-flex ">                                                        
-                            <a href="#" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>
-                            <a href="#" class="btn btn-info mr-2"><i class="fas fa-copy"></i></a>
-                                <form action="/produk" method="POST">
+                            <a href="/pemesanan/{{$value->id}}/edit" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>                            
+                            <a href="/surat/create/{{$value->id}}" class="btn btn-info mr-2"><i class="fas fa-copy"></i></a>
+                                <form action="/pemesanan/{{$value->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger mr-2" onclick="return confirm('Are you sure to delete this produk!');">
+                                    <button type="submit" class="btn btn-danger mr-2" onclick="return confirm('Are you sure to delete this pemesanan!');">
                                         <i class="fas fa-trash"></i>
                                     </button>                                      
                                 </form>                            
                             </div>
-                        </td>                      
+                        </td>                                                  
                     </tr>               
+                    @empty
+                    <tr colspan="3">
+                        <td>No data</td>
+                    </tr>  
+                    @endforelse
                 </tbody>
             </table>
         </div>
