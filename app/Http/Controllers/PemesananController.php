@@ -79,7 +79,7 @@ class PemesananController extends Controller
         $request->validate([
             'nama_pemesan' => 'required',
             'alamat_pemesan' => 'required',
-            'telp' => 'required|numeric',
+            'telp' => 'required|numeric|',
             'total' => 'required|numeric',
             'produk' => 'required|exists:produk,id'
         ]);

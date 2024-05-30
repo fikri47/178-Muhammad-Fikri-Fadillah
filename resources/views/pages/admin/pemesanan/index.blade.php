@@ -8,18 +8,22 @@ Halaman Pemesanan
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Pemesanan</h3>
-
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
     </div>
     <div class="card-body">
-        <a href="/pemesanan/create" class="btn btn-primary mb-2">Tambah Pemesanan</a>   
+        <a href="/pemesanan/create" class="btn btn-primary mb-2">Tambah Pemesanan</a>
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="card">
+                <div class="p-2 bd-highlight"><a href="#" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>For Update</div>
+            </div>
+                <div class="p-2 bd-highlight"></div>
+            <div class="card">
+                <div class="p-2 bd-highlight"><a href="#" class="btn btn-info mr-2"><i class="fas fa-copy"></i></a>For Create Surat Jalan</div>
+            </div>
+            <div class="p-2 bd-highlight"></div>
+            <div class="card">
+                <div class="p-2 bd-highlight"><a href="#" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a>For Delete</div>
+            </div>
+          </div>   
         <div class="table-responsive">
             <table class="table">
                 <thead class="thead-light">

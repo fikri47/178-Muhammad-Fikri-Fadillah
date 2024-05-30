@@ -7,19 +7,19 @@ Halaman Produk
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Produk</h3>
-
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+        <h3 class="card-title">Produk</h3>       
     </div>
     <div class="card-body">
-        <a href="/produk/create" class="btn btn-primary mb-2">Tambah Produk</a>   
+        <a href="/produk/create" class="btn btn-primary mb-2">Tambah Produk</a>
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="card">
+                <div class="p-2 bd-highlight"><a href="#" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>For Update</div>
+            </div>
+                <div class="p-2 bd-highlight"></div>
+            <div class="card">
+                <div class="p-2 bd-highlight"><a href="#" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a>For Delete</div>
+            </div>
+          </div>
         <div class="table-responsive">
             <table class="table">
                 <thead class="thead-light">
@@ -28,6 +28,7 @@ Halaman Produk
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Estimasi</th>
                     <th scope="col">Deskripsi</th>
+                    <th scope="col">Harga Produk</th>
                     <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -38,6 +39,7 @@ Halaman Produk
                         <td>{{$value->nama}}</td>
                         <td>{{$value->estimasi}}</td>
                         <td>{{$value->deskripsi}}</td>
+                        <td>RP. {{number_format($value->harga)}}</td>
                         <td>                            
                             <div class="d-flex ">
                             <a href="/produk/{{$value->id}}/edit" class="btn btn-success mr-2"><i class="fas fa-undo"></i></a>                                                                                                                                                                        

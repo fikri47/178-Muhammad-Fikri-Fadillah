@@ -56,7 +56,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
 						<h3><span class="orange-text">More</span> Products</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<p>Change your surroundings with our stunning collections. Let your space become a sanctuary of sophistication.</p>
 					</div>
 				</div>
 			</div>			
@@ -74,8 +74,7 @@
 						<a href="/produk/{{$item->id}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>				
-				@empty
-					<h2>No Product</h2>
+				@empty					
 				@endforelse
 			</div>
 		</div>

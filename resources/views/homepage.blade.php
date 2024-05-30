@@ -27,8 +27,9 @@
 		<section class="shop-banner" id="contact-us">
 			<div class="container">
 				<h3>Mohon untuk dibaca <span class="green-text">Pemesanan...</span></h3>
-				<div class="sale-percent"><span>Bisa Melalui<br></span>WA</div>
-				<a href="shop.html" class="cart-btn btn-lg">Pesan Sekarang!</a>
+				<div class="sale-percent"><span>Bisa Melalui<br></span>Whatsapp</div>
+				<p>*Bisa Request Ganti Warna</p>
+				<a href="https://wa.me/+628118954320" target="_blank" class="cart-btn btn-lg">Pesan Sekarang!</a>
 			</div>
 		</section>
 		<!-- end shop banner -->	
@@ -39,8 +40,7 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
-						<h3><span class="orange-text">Our</span> Products</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<h3><span class="orange-text">Our</span> Products</h3>						
 					</div>
 				</div>
 			</div>

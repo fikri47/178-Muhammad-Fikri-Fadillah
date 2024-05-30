@@ -59,7 +59,7 @@
                   </div>
                 <div class="form-group">
                     <label for="deskripsi_surat" class="form-label">Masukan deskripsi</label>
-                    <textarea class="form-control" name="deskripsi_surat" id="deskripsi_surat" rows="3" placeholder="Masukan deskripsi">{{$surat->dekripsi_surat}}</textarea>      
+                    <textarea class="form-control" name="deskripsi_surat" id="deskripsi_surat" rows="3" placeholder="Masukan deskripsi">{{$surat->deskripsi_surat}}</textarea>      
                     @error('deskripsi_surat')
                         <div class="alert alert-danger">
                             {{ $message }}

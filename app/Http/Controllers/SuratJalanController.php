@@ -15,6 +15,11 @@ class SuratJalanController extends Controller
     }
 
     public function store(Request $request, $id) {
+        $request->validate([
+            'ongkos_kirim'=>'required|numeric',
+            'tgl_pengiriman'=>'required',            
+        ]);
+
         $surat= Pemesanan::find($id);
         $surat = new Surat();
         $surat -> ongkos_kirim = $request->ongkos_kirim;
@@ -26,8 +31,7 @@ class SuratJalanController extends Controller
         return redirect('/surat');
     }
 
-    public function change(Request $request, Surat $surat) {
-        @dd($request->all());
+    public function change(Request $request, Surat $surat) {        
         $surat->update($request->all());
 
         return redirect('/surat');

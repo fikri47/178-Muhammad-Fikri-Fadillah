@@ -3,7 +3,7 @@
         <div class="col">
             <div class="footer-box about-widget">
                 <h2 class="widget-title">About us</h2>
-                <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+                <p>Established since 2000, we are producing furnitures with high quality material, perfect blend of style and beauty decoration to your home.</p>
             </div>
         </div>
         <div class="col">
@@ -12,7 +12,7 @@
                 <ul>
                     <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
                     <li>support@E_Mebel.com</li>
-                    <li>+00 111 222 3333</li>
+                    <li>+628118954320</a></li>
                 </ul>
             </div>
         </div>        

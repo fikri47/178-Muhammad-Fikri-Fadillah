@@ -11,7 +11,8 @@ class ProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+     */         
+
     public function index()
     {
         $produk = Produk::all();
@@ -65,9 +66,9 @@ class ProdukController extends Controller
      */
     public function show(string $id)
     {
-        $produk = Produk::find($id);
-        $moreProduk = Produk::where('id', '!=', $id)->limit(5)->get();
-        return view('pages.admin.produk.show', compact('produk', 'moreProduk'));
+        // $produk = Produk::find($id);
+        // $moreProduk = Produk::where('id', '!=', $id)->limit(5)->get();
+        // return view('pages.admin.produk.show', compact('produk', 'moreProduk'));
     }
 
     /**
@@ -83,14 +84,12 @@ class ProdukController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-
+    {        
         $request->validate([
             'nama' => 'required',
             'estimasi' => 'required|numeric',
             'deskripsi' => 'required',
-            'harga' => 'required|numeric',
-            'gambar' => 'required|image|mimes:png,jpg'
+            'harga' => 'required|numeric',            
         ]);
 
         $produk = Produk::find($id);
@@ -133,5 +132,12 @@ class ProdukController extends Controller
     public function getAll() {
         $produk = Produk::all();
         return view('homepage', ['produk'=>$produk]);
+    }
+    
+    public function single(string $id)
+    {
+        $produk = Produk::find($id);
+        $moreProduk = Produk::where('id', '!=', $id)->limit(5)->get();
+        return view('pages.admin.produk.show', compact('produk', 'moreProduk'));
     }
 }
